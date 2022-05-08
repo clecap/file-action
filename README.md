@@ -1,7 +1,7 @@
 # file-action README
 
 > Define your file action and call it when right-click item in explorer
-> 自定义文件动作处理脚本，并在资源文件树上点击某个文件或文件夹时调用
+> 自定义文件动作处理脚本，并在资源文件树上右键单击某个文件或文件夹时并点击`File Action`时调用
 
 ## Features
 
