@@ -1,7 +1,8 @@
 {
-  "name": "file-action",
+	"name": "file-action",
 	"displayName": "file-action",
 	"description": "Define your file action and call it when right-click item in explorer",
+	"repository": { "type": "git", "url": "https://github.com/erba-28/file-action.git" },
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.67.0"
@@ -10,16 +11,25 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:file-action.helloWorld"
+		"onCommand:file-action.fileAction"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "file-action.helloWorld",
-				"title": "Hello World"
+				"command": "file-action.fileAction",
+				"title": "File Action"
 			}
-		]
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "file-action.fileAction",
+					"group": "7_modification",
+					"alt": "file-action.fileAction"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
