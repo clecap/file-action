@@ -33,13 +33,17 @@ export function activate(context: vscode.ExtensionContext) {
 				cmd = `${resolve(wf.uri.fsPath, file)}`;
 			}
 		}
-
+		
 		let t = vscode.window.createTerminal({
-			cwd: statSync(uri.fsPath).isDirectory() ? uri.fsPath : dirname(uri.fsPath),
+			// cwd: statSync(uri.fsPath).isDirectory() ? uri.fsPath : dirname(uri.fsPath),
+			cwd: wf.uri.fsPath,
 		});
 		t.sendText(cmd);
 		t.show();
 		
+
+		// dispose terminal
+		t.sendText('exit');
 	});
 
 	context.subscriptions.push(disposable);
