@@ -24,8 +24,12 @@ console.log(path.normalize(args[args.length - 1]));
 // 通过判断当前文件 生成、清理、启动App、...
 ```
 
-## Release Notes
+## Changelog
 
-### 1.0.0
+### 0.0.1
 
-Initial release of `File Action`
+Initial of `File Action`
+
+### 0.0.2
+
+Exit terminal on excuted
