@@ -20,6 +20,8 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
     
+
+/*
     const vscodeFolderPath = join(wf.uri.fsPath, '.vscode', 'rightclick-action.json');
     const vscodeFolderUri = vscode.Uri.file(vscodeFolderPath);
 
@@ -30,26 +32,46 @@ try {
             } catch (error) {
                 vscode.window.showErrorMessage(`Could not open the file: ${error}`);
             }
+*/
 
-  //  let vsCodeName = path.join(workspaceFolders[0].uri.fsPath, '.vscode', 'yourfile.txt')
-   // let vsCodeName = join (resolve(wf.uri.fsPath), ".vscode", "rightclick-action.json");
-/*
-    vscode.window.showWarningMessage('will now read ' + vsCodeName);
+    let vsCodeName = join(wf.uri.fsPath, '.vscode', 'rightclick-action.json')
+    //vscode.window.showWarningMessage('will now read ' + vsCodeName);
     let fileString = null;
     try {
       fileString = readFileSync (vsCodeName,'utf8');
     } catch (err: any) {
        vscode.window.showWarningMessage("Problems reading file .vscode/rightclick-action.json code=" + err.message + "  " + err.code);
     }
- */
-/*
-   vscode.window.showWarningMessage('after read ');
+ 
+ vscode.window.showWarningMessage("File content is" + fileString);
+
     if (fileString) {
       vscode.window.showWarningMessage('Workspace: ' + fileString);
-    let obj = JSON.parse(fileString);
+     let obj;
+     try {obj = JSON.parse(fileString);} catch (err: any) {vscode.window.showWarningMessage("Problems JSON-parsing .vscode/rightclick-action.json  code=" + err.message + "  " + err.code);}
+    
+    if (obj) {
+      let cmd = null;
+      for (const property in obj) {
+        if (rightClick.endsWith (property)) {  
+           cmd = obj[property]; break;
+        }
+      }
+
+      let term = vscode.window.createTerminal({
+        // cwd: statSync(uri.fsPath).isDirectory() ? uri.fsPath : dirname(uri.fsPath),
+        cwd: wf.uri.fsPath,
+      });
+      term.sendText(cmd);
+      term.show();
+
+
     }
-    else {  vscode.window.showWarningMessage("Did not find file .vscode/rightlick-action.json");}  
-*/
+    else {  vscode.window.showWarningMessage("Json-parsed object is falsish"); }
+
+    }
+    else {  vscode.window.showWarningMessage("empty contens in file .vscode/rightclick-action.json");}  
+
 /*
    let term = vscode.window.createTerminal({
       // cwd: statSync(uri.fsPath).isDirectory() ? uri.fsPath : dirname(uri.fsPath),
