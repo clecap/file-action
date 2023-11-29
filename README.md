@@ -27,10 +27,31 @@ console.log(path.normalize(args[args.length - 1]));
 
 ## Changelog
 
-### 0.0.1
 
-Initial of `File Action`
+### 0.0.3
+
+Forked by Clemens Cap
+Removed terminal exit on execute, since we need to see error messages and more.
+Made title more prominent for context / right-click menu.
+Changed place in package.json to navigation
+TODO: changed generic place of action file to .vscode
+TODO: added vsce to packag.json
+TODO: included vsce run into npm scripts
+TODO: improved documentation
+TODO: removed nonenglish documentation portion
+TODO: made github package / release
+TODO: published on marketplace in new version
 
 ### 0.0.2
 
 Exit terminal on excuted
+
+### 0.0.1
+
+Initial of `File Action`
+
+## Development
+
+* Run npm install
+* Run vscode task compile
+* Press F5 to open test scenario
