@@ -16,17 +16,17 @@
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
-			{"command": "file-action.fileAction", "title": "*** File Action"},
-		  {"command": "file-action.dockerAction", "title": "*** Docker Action"},
-		  {"command": "file-action.composeUpAction", "title": "*** Compose Up Action"},
-	    {"command": "file-action.composeDownAction", "title": "*** Compose Down Action"}
+			{"command": "file-action.fileAction", "title": "DANTE: Run Shell File"},
+		  {"command": "file-action.dockerAction", "title": "DANTE: Docker Build Action"},
+		  {"command": "file-action.composeUpAction", "title": "DANTE: Compose Up Action"},
+	    {"command": "file-action.composeDownAction", "title": "DANTE: Compose Down Action"}
 		],
 		"menus": {
 			"explorer/context": [
-				{"command": "file-action.fileAction",      "group": "navigation"},
-				{"command": "file-action.dockerAction",      "group": "navigation"},
-        {"command": "file-action.composeUpAction",   "group": "navigation"},
-        {"command": "file-action.composeDownAction", "group": "navigation"}
+				{"command": "file-action.fileAction",      "group": "navigation",  "when": "isWorkspaceTrusted && resourceLangId == shellscript"},
+				{"command": "file-action.dockerAction",      "group": "navigation", "when": "isWorkspaceTrusted && resourceLangId == dockerfile"},
+        {"command": "file-action.composeUpAction",   "group": "navigation", "when": "isWorkspaceTrusted && resourceLangId == dockercompose"},
+        {"command": "file-action.composeDownAction", "group": "navigation", "when": "isWorkspaceTrusted && resourceLangId == dockercompose"}
 			]
 		}
 	},
