@@ -7,11 +7,11 @@ import { resolve, normalize, extname, dirname } from "path";
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	let disposable = vscode.commands.registerCommand('file-action.fileAction', function (uri: vscode.Uri) {
-		// 检查workspace目录下相应文件是否存在 file-action.*
-		let wf = vscode.workspace.getWorkspaceFolder(uri);
+  let disposable = vscode.commands.registerCommand('file-action.fileAction', function (uri: vscode.Uri) {
+
+    let wf = vscode.workspace.getWorkspaceFolder(uri);
 		if (!wf) {
-			vscode.window.showWarningMessage('Wokspace for this file not found!');
+			vscode.window.showWarningMessage('Workspace for this file not found!');
 			return;
 		}
 		let files = readdirSync(resolve(wf.uri.fsPath));
@@ -19,7 +19,8 @@ export function activate(context: vscode.ExtensionContext) {
 		let file = files.find(file => file.match(faRE));
 		let cmd = '';
 		if (!file) {
-			// vscode.window.showWarningMessage('excutable file \'file-action.*\' not found!');
+      let target = normalize(uri.fsPath);
+			vscode.window.showWarningMessage('target is: ' + target);
 			// return;
 
 			// via npm
@@ -42,8 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
 		t.show();
 		
 
-		// dispose terminal
-		t.sendText('exit');
+		// t.sendText('exit');  // uncomment, if we want to dispose of the terminal
 	});
 
 	context.subscriptions.push(disposable);

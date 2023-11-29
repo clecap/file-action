@@ -10,15 +10,12 @@
 	"categories": [
 		"Other"
 	],
-	"activationEvents": [
-		"onCommand:file-action.fileAction"
-	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"command": "file-action.fileAction",
-				"title": "File Action"
+				"title": "File ActionXXX"
 			}
 		],
 		"menus": {
