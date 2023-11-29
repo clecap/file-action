@@ -2,13 +2,6 @@
 
 
 
-> Define your file action and call it when right-click item in explorer
-
-
-## Features
-
-Define `File Action` handler freely.
-
 
 ## Requirements
 
@@ -27,18 +20,17 @@ console.log(path.normalize(args[args.length - 1]));
 
 ## Changelog
 
-
 ### 0.0.3
 
-Forked by Clemens Cap
-Removed terminal exit on execute, since we need to see error messages and more.
-Made title more prominent for context / right-click menu.
-Changed place in package.json to navigation
+* Forked by Clemens Cap
+* Removed terminal exit on execute, since we need to see error messages and more.
+* Made title more prominent for context / right-click menu.
+* Changed place in package.json to navigation
 TODO: changed generic place of action file to .vscode
-TODO: added vsce to packag.json
+* added vsce to package.json
 TODO: included vsce run into npm scripts
-TODO: improved documentation
-TODO: removed nonenglish documentation portion
+* improved documentation
+* removed nonenglish documentation portion
 TODO: made github package / release
 TODO: published on marketplace in new version
 
@@ -53,5 +45,5 @@ Initial of `File Action`
 ## Development
 
 * Run npm install
-* Run vscode task compile
+* Run .vscode task compile
 * Press F5 to open test scenario
