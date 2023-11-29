@@ -16,18 +16,17 @@
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
-			{
-				"command": "file-action.fileAction",
-				"title": "*** File Action"
-			}
+			{"command": "file-action.fileAction", "title": "*** File Action"},
+		  {"command": "file-action.dockerAction", "title": "*** Docker Action"},
+		  {"command": "file-action.composeUpAction", "title": "*** Compose Up Action"},
+	    {"command": "file-action.composeDownAction", "title": "*** Compose Down Action"}
 		],
 		"menus": {
 			"explorer/context": [
-				{
-					"command": "file-action.fileAction",
-					"group": "navigation",
-					"alt": "file-action.fileAction"
-				}
+				{"command": "file-action.fileAction",      "group": "navigation"},
+				{"command": "file-action.dockerAction",      "group": "navigation"},
+        {"command": "file-action.composeUpAction",   "group": "navigation"},
+        {"command": "file-action.composeDownAction", "group": "navigation"}
 			]
 		}
 	},
