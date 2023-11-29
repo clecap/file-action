@@ -26,12 +26,13 @@ console.log(path.normalize(args[args.length - 1]));
 * Removed terminal exit on execute, since we need to see error messages and more.
 * Made title more prominent for context / right-click menu.
 * Changed place in package.json to navigation
-TODO: changed generic place of action file to .vscode
+* Changed generic place of action file to .vscode
+* Modified action principle
 * added vsce to package.json
-TODO: included vsce run into npm scripts
+* included vsce run into npm scripts
 * improved documentation
 * removed nonenglish documentation portion
-TODO: made github package / release
+* made github package / release
 TODO: published on marketplace in new version
 
 ### 0.0.2
